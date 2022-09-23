@@ -1,3 +1,4 @@
 # -KAPE-a-simple-game-
-still is development stage
-got stuck while moving the pawn in 24th node to other node
+
+the updated_kape.py is the updated and completed code
+you can just run the code and play the game , have fun..
