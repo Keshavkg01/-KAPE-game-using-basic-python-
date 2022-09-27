@@ -35,11 +35,7 @@ def check_akape(stda, a, b, z):
                 print("select from this" + str(b))
                 p = int(input("enter the opponent pawn to remove: "))
             b.remove(p)
-            #print("b",b)
-            #index = n.index(p)
-            temp = z[p-1]
-            temp = temp[:-1]
-            z[p-1] = temp
+            z[p-1] = z[p-1][:-1]
             zfig(z)
     return stda,a,b,z
 
@@ -54,9 +50,7 @@ def check_bkape(stdb, a, b, z):
                 p = int(input("enter the opponent pawn to remove" + str(a) + ": "))
             #index = n.index(p)
             a.remove(p)
-            temp = z[p-1]
-            temp = temp[:-1]
-            z[p-1] = temp
+            z[p-1] = z[p-1][:-1]
             zfig(z)
     return stdb,a,b,z
 
@@ -156,7 +150,17 @@ while (True):
         a.append(q)
         zfig(z)
         stda,a,b,z=check_akape(stda,a,b,z)
-
+        
+        # to check b(user2) is blocked or not
+        flag = 1
+        for i in b:
+            for j in moves[i - 1]:
+                if j not in a and j not in b:
+                    flag = 0
+        if flag == 1:
+            print("user 1 won the game!!.....\n" * 3)
+            exit(0)
+            
         p, q = list(map(int, input("user2: ").split()))
         while p not in b or q in a or q in b or q not in moves[p - 1]:
             print("invalid input!!!.., please enter again")
