@@ -16,8 +16,8 @@ def zfig(z):
     print(".    " + str(z[21]) + " ----------------- " + str(z[22]) + " -----------------" + str(z[23]) + " ")
 
 
-def finish(stda, stdb):
-    if (len(stda) > len(stdb)):
+def finish(a,b):
+    if (len(b) > len(a)):
         print("user 2 won the game")
     else:
         print("user1 won the game")
